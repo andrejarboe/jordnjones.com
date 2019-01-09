@@ -2,7 +2,6 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import { initialTheme, themeVariations } from './initialTheme'
-import { fetchTheme } from './utils'
 /**
  * Experimental,
  * Here, I have to call the query on images only ONCE, and then pass around that reference within the context,
@@ -26,6 +25,21 @@ const { Provider, Consumer } = React.createContext({
 class ColourProvider extends React.Component {
   state = {
     theme: initialTheme,
+  }
+  componentDidMount() {
+    /**Another interesting find, the window and repective objects arent available during gatsby build, this
+     * is as a result of https://github.com/gatsbyjs/gatsby/issues/309, therefore they must be accessed within
+     * react lifecycle methods which are evaluated in the browser
+     */
+    if (window) {
+      let colour = localStorage.getItem('colour') || `white`
+      this.setState({
+        theme: {
+          ...initialTheme,
+          ...themeVariations[colour],
+        },
+      })
+    }
   }
   setTransition = (previousColour, nextColour) =>
     this.setState({
@@ -60,12 +74,10 @@ class ColourProvider extends React.Component {
   }
   getTheme = () => {
     let { theme, previousColour, nextColour } = this.state
-    let colour = fetchTheme()
     return {
       ...theme,
       previousColour,
       nextColour,
-      ...themeVariations[`${colour}`],
     }
   }
   render() {

@@ -48,6 +48,8 @@ const initialTheme = {
   textColour: '#000000',
   previousColour: '',
   nextColour: '',
+  logo: blackLogo,
+  heroImage: WhiteDevices,
   white: '#FFFFFF',
   blue: '#4787FF',
   green: '#00E495',

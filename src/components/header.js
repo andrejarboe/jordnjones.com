@@ -24,7 +24,6 @@ const Header = () => (
           <div />
           <HeaderLinksContainer>
             <HeaderLink to="/">home</HeaderLink>
-            <HeaderLink to="/work">work</HeaderLink>
             <HeaderLink to="/contact">contact</HeaderLink>
           </HeaderLinksContainer>
         </Navbar>

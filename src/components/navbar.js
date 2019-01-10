@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Navbar = styled.div`
   display: grid;
-  grid-template-columns: 100px auto 300px;
+  grid-template-columns: 100px auto 200px;
   margin: 0 auto;
   padding: 1.45rem 1.0875rem;
 

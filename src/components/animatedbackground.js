@@ -6,10 +6,10 @@ import { ThemeConsumer } from '../theme'
 
 const AnimatedDiv = styled.div`
   @media screen and (max-width: 600px) {
-    height: 600px !important;
+    height: 600px ${props => props.force && `!important`};
   }
 `
-const AnimatedBackground = ({ height }) => (
+const AnimatedBackground = ({ height, force = false }) => (
   <ThemeConsumer>
     {({ theme }) => (
       <>
@@ -25,6 +25,7 @@ const AnimatedBackground = ({ height }) => (
         >
           {interop => (
             <AnimatedDiv
+              force={force}
               style={{
                 background: interop.background,
                 position: 'absolute',

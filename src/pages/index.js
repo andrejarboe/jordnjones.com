@@ -49,14 +49,14 @@ const BlogContainer = styled.div`
   }
 `
 
-const correctTitles = color => (color === '#FFFFFF' ? 'black' : color)
+const invertWhite = color => (color === '#FFFFFF' ? 'black' : color)
 
 const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <AnimatedBackground height="500px" />
+      <AnimatedBackground height="500px" force />
       <ThemeConsumer>
         {({ theme }) => (
           <>
@@ -91,7 +91,7 @@ const IndexPage = ({ data }) => {
                       <Link
                         style={{
                           boxShadow: `none`,
-                          color: correctTitles(theme.primary),
+                          color: invertWhite(theme.primary),
                           textDecoration: 'none',
                         }}
                         to={node.fields.slug}

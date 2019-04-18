@@ -1,10 +1,19 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: `jordnjones.com`,
-    description: `Jordan Jones' swanky website`,
+    siteUrl: 'https://jordnjones.com',
+    description: `Jordan Jones, Fullstack Javascript Developer based in Kingston, Jamaica`,
     author: `@Pr0x1m4`,
   },
   plugins: [
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        defaultLayouts: { default: path.resolve('./src/components/layout.js') },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -21,22 +30,36 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              numberLines: true,
+              noInlineHighlight: true,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `jordnjones.com`,
-        short_name: `personal`,
+        short_name: `jordnjones`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#000000`,
+        theme_color: `#000000`,
+        display: `standalone`,
+        icon: `src/images/white-logo.svg`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`,
   ],
 }

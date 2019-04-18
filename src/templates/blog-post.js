@@ -1,10 +1,21 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import AnimatedBackground from '../components/animatedbackground'
 
+const PageLink = styled(Link)`
+  padding: 20px;
+  color: ${props => props.theme.primary};
+  background: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border-bottom: 2px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
+`
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -24,29 +35,29 @@ class BlogPostTemplate extends React.Component {
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr style={{}} />
 
         <ul
           style={{
             display: `flex`,
-            flexWrap: `wrap`,
             justifyContent: `space-between`,
             listStyle: `none`,
             padding: 0,
+            paddingTop: '50px',
+            marginLeft: 0,
           }}
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
+              <PageLink to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title.substring(0, 15).concat('...')}
+              </PageLink>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
+              <PageLink to={next.fields.slug} rel="next">
+                {next.frontmatter.title.substring(0, 15).concat('...')} →
+              </PageLink>
             )}
           </li>
         </ul>

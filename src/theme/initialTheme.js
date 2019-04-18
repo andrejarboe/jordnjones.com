@@ -9,12 +9,12 @@ import blackLogo from '../images/black-logo.svg'
 import whiteLogo from '../images/white-logo.svg'
 
 const themeVariations = {
-  white: {
+  /*now white: {
     textColour: '#000000',
     primary: '#FFFFFF',
     logo: blackLogo,
     heroImage: WhiteDevices,
-  },
+  },*/
   blue: {
     textColour: '#FFFFFF',
     primary: '#4787FF',
@@ -55,7 +55,7 @@ const initialTheme = {
   green: '#00E495',
   red: '#FF4759',
   yellow: '#FFBF47',
-  colours: ['blue', 'green', 'red', 'yellow', 'white'],
+  colours: ['blue', 'green', 'red', 'yellow'],
 }
 
 export { initialTheme, themeVariations }

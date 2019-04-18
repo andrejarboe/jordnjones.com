@@ -35,6 +35,8 @@ const HeroTextContainer = styled.div`
 const HeroContainer = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  min-height: 300px;
+  padding-bottom: 50px;
   @media screen and (max-width: 600px) {
     grid-template-columns: 1fr;
     text-align: -webkit-center;
@@ -43,9 +45,15 @@ const HeroContainer = styled.div`
   }
 `
 const BlogContainer = styled.div`
-  padding-top: 140px;
+  margin: 0 auto;
+  padding: 40px 80px 40px 80px;
+  background: white;
+  border-radius: 5px;
   @media screen and (max-width: 600px) {
-    padding-top: 100px;
+    padding-top: 50px;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 `
 
@@ -55,7 +63,11 @@ const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO
+        title="Home"
+        description="Jordan Jones, Fullstack Javascript Developer based in Kingston, Jamaica"
+        keywords={[`gatsby`, `application`, `react`]}
+      />
       <AnimatedBackground height="500px" force />
       <ThemeConsumer>
         {({ theme }) => (
@@ -79,6 +91,7 @@ const IndexPage = ({ data }) => {
               </div>
             </HeroContainer>
             <BlogContainer>
+              <h2>Blog</h2>
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (

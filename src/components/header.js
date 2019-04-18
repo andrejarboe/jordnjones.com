@@ -9,22 +9,25 @@ const HeaderLinksContainer = styled.div`
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
   padding-top: 20px;
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 `
 const Header = () => (
   <ThemeConsumer>
     {({ theme }) => (
       <>
-        <Navbar>
+        <Navbar
+          css={`
+            @media screen and (max-width: 600px) {
+              display: none;
+            }
+          `}
+        >
           <HeaderLink to="/">
             <img alt="logo" height="60px" src={theme.logo} />
           </HeaderLink>
           <div />
           <HeaderLinksContainer>
             <HeaderLink to="/">home</HeaderLink>
-            <HeaderLink to="/contact">contact</HeaderLink>
+            <HeaderLink to="/about">about</HeaderLink>
           </HeaderLinksContainer>
         </Navbar>
       </>

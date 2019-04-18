@@ -1,7 +1,7 @@
 ---
 path: '/typo-version-2'
 date: '2017-11-05T20:29:10.950Z'
-title: 'Typo, an expirement in font viewing'
+title: 'Typo, an experiment in font viewing'
 image: 'http://res.cloudinary.com/dnqsgeyp7/image/upload/c_scale,q_90,w_2893/v1518389760/typo.png'
 ---
 
@@ -32,3 +32,5 @@ One of the most difficult challenges I faced while developing Typo was adapting 
 Aside from this initial learning curve, once I _finally_ understood them, it was like developing with a jetpack strapped to my back.
 
 Typo is now available for download (via [github](https://github.com/Pr0x1m4/typo)), I'll make a website(eventually lol).
+
+<img src='http://res.cloudinary.com/dnqsgeyp7/image/upload/c_scale,q_90,w_2893/v1518389760/typo.png' />

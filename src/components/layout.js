@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 
 import { ThemeProvider, ThemeConsumer } from '../theme'
 import ThemePicker from '../components/themepicker'
+import AnimatedBackground from '../components/animatedbackground'
 import Header from './header'
+import Hamburger from './hamburger'
 import Footer from './footer'
-import './layout.css'
+import '../components/layout.css'
 
 const Layout = ({ children }) => (
   <ThemeProvider>
@@ -13,6 +15,7 @@ const Layout = ({ children }) => (
       {({ theme }) => (
         <>
           <Header />
+          <Hamburger />
           <div
             style={{
               margin: `0 auto`,
@@ -21,6 +24,7 @@ const Layout = ({ children }) => (
               paddingTop: 0,
             }}
           >
+            <AnimatedBackground height={100} />
             <ThemePicker />
             {children}
           </div>

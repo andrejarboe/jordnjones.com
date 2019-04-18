@@ -22,6 +22,10 @@ const { Provider, Consumer } = React.createContext({
   handleThemeChange: () => {},
 })
 
+//Pick a random theme each new revisit
+const themeColours = ['red', 'blue', 'green', 'yellow']
+const randomColour = () => themeColours[`${Math.floor(Math.random() * 4)}`]
+
 class ColourProvider extends React.Component {
   state = {
     theme: initialTheme,
@@ -32,7 +36,7 @@ class ColourProvider extends React.Component {
      * react lifecycle methods which are evaluated in the browser
      */
     if (window) {
-      let colour = localStorage.getItem('colour') || `white`
+      let colour = localStorage.getItem('colour') || randomColour()
       this.setState({
         theme: {
           ...initialTheme,
